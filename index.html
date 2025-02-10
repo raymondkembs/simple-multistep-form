@@ -60,19 +60,22 @@
                     <h3>Select your plan</h3>
                     <p class="mePlan">You have the option of monthly or yearly billing.</p>
                     <div class="sPlanCon">
-                        <div class="arcade">
+                        <div id="sPlanArcade" class="arcade">
+                            <input type="radio" id="arcadeBox" class="sPlanBoxes" name="splanRadio" value="my-arcade">
                             <img src="images\icon-arcade.svg" alt="">
                             <p class="name">Arcade</p>
                             <p class="price" id="pArcade">$9/mo</p>
                             <p class="bonus">2 months free</p>
                         </div>
-                        <div class="advanced">
+                        <div id="sPlanAdvanced" class="advanced">
+                            <input type="radio" id="advancedBox" class="sPlanBoxes" name="splanRadio" value="my-advanced">
                             <img src="images\icon-advanced.svg" alt="">
                             <p class="name">Advanced</p>
                             <p class="price" id="pAdvanced">$12/mo</p>
                             <p class="bonus">2 months free</p>
                         </div>
-                        <div class="pro">
+                        <div id="sPlanPro" class="pro">
+                            <input type="radio" id="proBox" class="sPlanBoxes" name="splanRadio" value="my-advanced">
                             <img src="images\icon-pro.svg" alt="">
                             <p class="name">Pro</p>
                             <p class="price" id="pPro">$15/mo</p>
@@ -105,7 +108,7 @@
                                 <p class="pickTitle">Online Service</p>
                                 <p class="pickInfo">Access to multiplayer games</p>
                             </div>
-                            <p class="month">+$2/mo</p>
+                            <p id="idServicePrice" class="month">+$1/mo</p>
                         </div>
 
                         <div id="idStorage" class="onService">
@@ -115,7 +118,7 @@
                                 <p class="pickTitle">Larger storage</p>
                                 <p class="pickInfo">Extra 1TB of cloud save</p>
                             </div>
-                            <p class="month">+$2/mo</p>
+                            <p id="idStoragePrice" class="month">+$2/mo</p>
                         </div>
 
                         <div id="idProfile" class="onService">
@@ -123,9 +126,9 @@
                             <label class="myCheckBox" for="boxProfile"></label>
                             <div class="pickOns">
                                 <p class="pickTitle">Customizable Profile</p>
-                                <p class="pickInfo">Custom theme on your profile</p>
+                                <p id="pickInfo" class="pickInfo">Custom theme on your profile</p>
                             </div>
-                            <p class="month">+$2/mo</p>
+                            <p id="idProfilePrice" class="month">+$2/mo</p>
                         </div>
                      </div>
                      <div class="mybuttons">
@@ -141,23 +144,27 @@
                     <div class="doubleCheck">
                         <table>
                             <tr class="z">
-                                <td class="a">Arcade(monthly)</td>
-                                <td class="b">$9/mo</td>
+                                <td id="monthlyPlan" class="a">-</td>
+                                <td id="monthlyPlanPrice" class="b">- -</td>
                             </tr>
-                            <tr>
+                            <tr id="online">
                                 <td class="aa">Online service</td>
-                                <td class="b">$1/mo</td>
+                                <td id="idServicePrice2" class="b">-</td>
                             </tr>
-                            <tr>
+                            <tr id="storage">
                                 <td class="aa">Larger storage</td>
-                                <td class="b">$2/mo</td>
+                                <td id="idStoragePrice2" class="b">-</td>
+                            </tr>
+                            <tr id="profile">
+                                <td class="aa">Customizable Profile</td>
+                                <td id="idProfilePrice2" class="b">-</td>
                             </tr>
                         </table>
                     </div>
                     <div class="info1">
                         <!-- insert info -->
-                        <p class="total">Total (per month)</p>
-                        <p class="amount">+$12/mo</p>
+                        <p id="totalName" class="total">Total (per month)</p>
+                        <p id="totalPrice" class="amount">-</p>
                     </div>
                     <div class="mybuttons2">
                         <button class="meInfoBack" onclick="goToThree()">Go back</button>
