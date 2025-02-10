@@ -11,7 +11,7 @@
     --strawberryRed: hsl(354, 84%, 57%);
     --coolGray: hsl(231, 11%, 63%);
     --lightGray: #d6d9e6;
-    --magnolia: hsl(217, 100%, 97%);
+    --magnolia: #f0f6ff;
     --alabaster: #fafbff;
     --white: hsl(0, 0%, 100%);
 }
@@ -109,7 +109,6 @@ body{
     font-size: 12px;
   }
 /* ========================================= */
-
 /* OBJECT ONE */
 .objTwo{
     position: relative;
@@ -173,12 +172,26 @@ body{
   border-radius: 5px;
   border: 1px solid var(--lightGray);
   background: var(--white);
+  cursor: pointer;
 }
 .objTwo .sPlan .sPlanCon .arcade{
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+.objTwo .sPlan .sPlanCon .arcade input[type="radio"],
+.objTwo .sPlan .sPlanCon .advanced input[type="radio"],
+.objTwo .sPlan .sPlanCon .pro input[type="radio"]{
+  display: none;
+}
+.objTwo .sPlan .sPlanCon .arcade:hover,
+.objTwo .sPlan .sPlanCon .advanced:hover,
+.objTwo .sPlan .sPlanCon .pro:hover{
+  border-color: var(--marineBlue);
+  background: var(--magnolia);
 }
 .objTwo .sPlan .sPlanCon .arcade p.bonus,
 .objTwo .sPlan .sPlanCon .advanced p.bonus,
@@ -374,7 +387,7 @@ body{
   background: var(--purplishBlue); 
 }
 .objTwo .pContainer .onService input[type="checkbox"]:checked + label::after{
-  content: '\2714'; /* Unicode checkmark */
+  content: '\2714'; 
   position: absolute;
   left: 4px;
   top: -2px;
@@ -420,6 +433,11 @@ body{
   width: 95%;
   height: auto;
   border-collapse: collapse;
+}
+.objTwo .finishup .doubleCheck table tr#online,
+.objTwo .finishup .doubleCheck table tr#storage,
+.objTwo .finishup .doubleCheck table tr#profile{
+  /* visibility: hidden; */
 }
 .objTwo .finishup .doubleCheck table td.a{
   padding: 20px;
