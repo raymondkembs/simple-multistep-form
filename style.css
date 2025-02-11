@@ -5,7 +5,7 @@
 }
 :root{
     --marineBlue: #02295a;
-    --purplishBlue: hsl(243, 100%, 62%);
+    --purplishBlue: #473dff;
     --pastelBlue: hsl(228, 100%, 84%);
     --lightBlue: hsl(206, 94%, 87%);
     --strawberryRed: hsl(354, 84%, 57%);
@@ -143,6 +143,17 @@ body{
 }
 .objTwo .pInfo input{
     display: block;
+}
+.objTwo .pInfo .pInfoChecker{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.badEmail,
+.badName,
+.badNumber{
+  visibility: hidden;
 }
 .objTwo .sPlan{
   position: relative;
@@ -317,9 +328,13 @@ body{
   padding: 13px 13px 13px 15px;
   margin: 5px 0 20px 0;
   width: 100%;
-  border: 2px solid var(--lightGray);
+  border: 1.5px solid var(--lightGray);
   border-radius: 8px;
   outline: none;
+}
+.objTwo form .pInfo input:hover{
+  cursor: pointer;
+  border: 1.5px solid var(--marineBlue);
 }
 .objTwo form .pInfo button{
   padding: 10px 15px;
@@ -433,11 +448,6 @@ body{
   width: 95%;
   height: auto;
   border-collapse: collapse;
-}
-.objTwo .finishup .doubleCheck table tr#online,
-.objTwo .finishup .doubleCheck table tr#storage,
-.objTwo .finishup .doubleCheck table tr#profile{
-  /* visibility: hidden; */
 }
 .objTwo .finishup .doubleCheck table td.a{
   padding: 20px;
