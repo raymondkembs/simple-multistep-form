@@ -47,12 +47,21 @@
                 <div class="pInfo" id="pInfo">
                     <h3 class="meInfo">Personal info</h3>
                     <p class="meInfo">Please provide your name, email address, and phone number.</p>
-                    <label class="meInfo" for="name">Name</label>
-                    <input onchange="handleChange(event)" class="meInfo" type="text" placeholder="e.g. Stephen King">
-                    <label class="meInfo" for="email">Email Address</label>
-                    <input onchange="handleChange(event)" class="meInfo" type="text" placeholder="e.g. stephenking@lorem.com">
-                    <label class="meInfo" for="number">Phone Number</label>
-                    <input onchange="handleChange(event)" class="meInfo" type="number" placeholder="e.g. +1 234 567 890">
+                    <div class="pInfoChecker">
+                        <label class="meInfo" for="name">Name</label>
+                        <label id="badName" class="badName" for="required"></label>
+                    </div>
+                    <input onchange="handleChange(event)" id="checkmyname" class="meInfo" type="text" placeholder="e.g. Stephen King">
+                    <div class="pInfoChecker">
+                        <label class="meInfo" for="email">Email Address</label>
+                        <label id="badEmail" class="badEmail" for="required"></label>
+                    </div>
+                    <input onchange="handleChange2(event)" id="emailInput" class="meInfo" type="text" placeholder="e.g. stephenking@lorem.com">
+                    <div class="pInfoChecker">
+                        <label class="meInfo" for="number">Phone Number</label>
+                        <label id="badNumber" class="badNumber" for="required"></label>
+                    </div> 
+                    <input onchange="handleChange3(event)" id="checkmynumber" class="meInfo" type="number" placeholder="e.g. +1 234 567 890">
                     <button class="meInfo" id="stepOne" onclick="toStepTwo()">Next Step</button>
                 </div>
                 <!-- SERVICE PLAN PAGE -->
