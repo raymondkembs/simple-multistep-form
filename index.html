@@ -39,7 +39,8 @@
                     </a>
                 </li></a>
              </ol>
-            <img src="images\bg-sidebar-desktop.svg" alt="">
+            <img id="imgDesktop" src="images\bg-sidebar-desktop.svg" alt="">
+            <img id="imgMobile" src="images\bg-sidebar-mobile.svg" alt="">
         </div>
         <div class="objTwo">
              <form id="myForm" action="#">
@@ -48,17 +49,17 @@
                     <h3 class="meInfo">Personal info</h3>
                     <p class="meInfo">Please provide your name, email address, and phone number.</p>
                     <div class="pInfoChecker">
-                        <label class="meInfo" for="name">Name</label>
+                        <label class="x meInfo" for="name">Name</label>
                         <label id="badName" class="badName" for="required"></label>
                     </div>
                     <input onchange="handleChange(event)" id="checkmyname" class="meInfo" type="text" placeholder="e.g. Stephen King">
                     <div class="pInfoChecker">
-                        <label class="meInfo" for="email">Email Address</label>
+                        <label class="x meInfo" for="email">Email Address</label>
                         <label id="badEmail" class="badEmail" for="required"></label>
                     </div>
                     <input onchange="handleChange2(event)" id="emailInput" class="meInfo" type="text" placeholder="e.g. stephenking@lorem.com">
                     <div class="pInfoChecker">
-                        <label class="meInfo" for="number">Phone Number</label>
+                        <label class="x meInfo" for="number">Phone Number</label>
                         <label id="badNumber" class="badNumber" for="required"></label>
                     </div> 
                     <input onchange="handleChange3(event)" id="checkmynumber" class="meInfo" type="number" placeholder="e.g. +1 234 567 890">
@@ -72,23 +73,29 @@
                         <div id="sPlanArcade" class="arcade">
                             <input type="radio" id="arcadeBox" class="sPlanBoxes" name="splanRadio" value="my-arcade">
                             <img src="images\icon-arcade.svg" alt="">
-                            <p class="name">Arcade</p>
-                            <p class="price" id="pArcade">$9/mo</p>
-                            <p class="bonus">2 months free</p>
+                            <div class="sPlanBlock">
+                                <p class="name">Arcade</p>
+                                <p class="price" id="pArcade">$9/mo</p>
+                                <p class="bonus">2 months free</p>  
+                            </div>
                         </div>
                         <div id="sPlanAdvanced" class="advanced">
                             <input type="radio" id="advancedBox" class="sPlanBoxes" name="splanRadio" value="my-advanced">
                             <img src="images\icon-advanced.svg" alt="">
-                            <p class="name">Advanced</p>
-                            <p class="price" id="pAdvanced">$12/mo</p>
-                            <p class="bonus">2 months free</p>
+                            <div class="sPlanBlock">
+                                <p class="name">Advanced</p>
+                                <p class="price" id="pAdvanced">$12/mo</p>
+                                <p class="bonus">2 months free</p>
+                            </div>
                         </div>
                         <div id="sPlanPro" class="pro">
                             <input type="radio" id="proBox" class="sPlanBoxes" name="splanRadio" value="my-advanced">
                             <img src="images\icon-pro.svg" alt="">
-                            <p class="name">Pro</p>
-                            <p class="price" id="pPro">$15/mo</p>
-                            <p class="bonus">2 months free</p>
+                            <div class="sPlanBlock">
+                                <p class="name">Pro</p>
+                                <p class="price" id="pPro">$15/mo</p>
+                                <p class="bonus">2 months free</p>
+                            </div>
                         </div>
                     </div>
                     <div class="days">
@@ -152,9 +159,12 @@
                     <p class="meInfo">Double-check everything looks OK before confirming.</p>
                     <div class="doubleCheck">
                         <table>
-                            <tr class="z">
+                            <tr class="tbheader">
                                 <td id="monthlyPlan" class="a">-</td>
                                 <td id="monthlyPlanPrice" class="b">- -</td>
+                            </tr>
+                            <tr class="z">
+                                <td id="monthlyPlanChange" class="c"><a href="#" onclick="toStepTwo()">Change</a></td>
                             </tr>
                             <tr id="online">
                                 <td class="aa">Online service</td>
