@@ -145,7 +145,7 @@ body{
 }
 .objTwo .pInfo .pInfoChecker{
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -519,6 +519,7 @@ body{
 @media (max-width: 1000px) {
   body{
     height: auto;
+    background: var(--magnolia)
   }
   .con{
     display: flex;
@@ -528,7 +529,7 @@ body{
     width: 100%;
     padding-bottom: 20px;
     border-radius: 0;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
   } 
   .objOne{
     position: relative;
@@ -561,6 +562,7 @@ body{
     padding: 30px;
     width: 90%;
     border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
   }
   .objTwo form .pInfo h3,
   .objTwo form .sPlan h3,
@@ -642,5 +644,8 @@ body{
   }
   .objTwo .pContainer .onService p.pickInfo{
     font-size: 12px;
+  }
+  .objTwo .finishup .doubleCheck table td.s{
+    font-size: 13px;
   }
 }
