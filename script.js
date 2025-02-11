@@ -34,6 +34,12 @@ let idProfilePrice = document.getElementById("idProfilePrice");
 let idProfilePrice2 = document.getElementById("idProfilePrice2");
 let idServicePrice2 = document.getElementById("idServicePrice2");
 let idStoragePrice2 = document.getElementById("idStoragePrice2");
+let checkmyname = document.getElementById('checkmyname');
+let checkmynumber = document.getElementById('checkmynumber');
+let emailInput = document.getElementById("emailInput");
+let badEmail = document.getElementById("badEmail");
+let badName = document.getElementById("badName");
+let badNumber = document.getElementById("badNumber");
 let dotOne = document.getElementById("dotOne");
 let dotTwo = document.getElementById("dotTwo");
 let dotThree = document.getElementById("dotThree");
@@ -54,10 +60,12 @@ let yrPro = 150;
 let moArcade = 9;
 let moAdvanced = 12;
 let moPro = 15;
-let addOnline = 1; 
-let addStorage = 2; 
-let addProfile = 2;
-
+let addOnlineMo = 1; 
+let addStorageMo = 2; 
+let addProfileMo = 2;
+let addOnlineYr = 10; 
+let addStorageYr = 20; 
+let addProfileYr = 20;
 
 sPlanArcade.addEventListener('click',function(){
     myValue = window.getComputedStyle(dotTwo).getPropertyValue("opacity");
@@ -138,23 +146,48 @@ sPlanPro.addEventListener('click',function(){
         sPlanAdvanced.style.borderColor = "#d6d9e6";
     }
 })
+// emailInput
 function handleChange(event){
     let checker = event.target.value
-    let convert = Number(checker); 
-    let myNumber = isNaN(convert);
-    if(checker.includes('@')){
-        console.log("It's and email address");
-        pInfoInputEmail = event.target.value;
-    }else if(!checker.includes('@') && myNumber === true){
-        console.log("it's just a name");
-        pInfoInputName = event.target.value;
+    if(checker === ""){
+        console.log("emtpy");
+        checkmyname.style.borderColor = "tomato";
+        badName.style.visibility = "visible";
+        badName.innerHTML = "Is empty";
+        badName.style.color = "tomato";
     }else{
-        console.log("It's just a number");
-        pInfoInputNumber = event.target.value;
+        console.log("there's something")
+        checkmyname.style.borderColor = "#473dff";
+        badName.innerHTML = " ";
     }
 }
-let mydocs = " ";
-mydocs = document.getAnimations("pInfoInputName").value;
+function handleChange2(event){
+    let checker = event.target.value;
+    if(!checker.includes('@')){
+        console.log('not a good email');
+        emailInput.style.borderColor = "tomato";
+        badEmail.style.visibility = "visible";
+        badEmail.innerHTML = "Bad email";
+        badEmail.style.color = "tomato";
+    }else{
+        emailInput.style.borderColor = "#473dff";
+        badEmail.innerHTML = " ";
+    }
+}
+function handleChange3(event){
+    let checker = event.target.value
+    if(checker === ""){
+        console.log("emtpy");
+        checkmynumber.style.borderColor = "tomato";
+        badNumber.style.visibility = "visible";
+        badNumber.innerHTML = "This field is required";
+        badNumber.style.color = "tomato";
+    }else{
+        console.log("there's something")
+        checkmynumber.style.borderColor = "#473dff";
+        badNumber.innerHTML = " ";
+    } 
+}
 myliOne.addEventListener('click',function(){
     toStepOne();
 });
@@ -188,152 +221,204 @@ function toStepOne(){
         }
         `,createdEl.sheet.cssRules.length)
 }
+
 function toStepTwo(){
-    pAddon.style.display = "none";
-    finishup.style.display = "none";
-    pInfo.style.display = "none";
-    sPlan.style.display = "flex";
-    success.style.display = "none";
-    console.log("name",pInfoInputName);
-    console.log("email",pInfoInputEmail);
-    console.log("number",pInfoInputNumber);
-    createdEl.sheet.insertRule(`
-        li:nth-child(2)::before{ 
-            color: #444 !important; 
-            background: #87ceeb;
-        }
-        `,createdEl.sheet.cssRules.length)
-    createdEl.sheet.insertRule(`
-        li:nth-child(1)::before,
-        li:nth-child(3)::before,
-        li:nth-child(4)::before{ 
-            color: white !important; 
-            background: transparent;
-        }
-        `,createdEl.sheet.cssRules.length)
+    if(checkmyname.value === "" || emailInput === "" || checkmynumber === ""){
+        toStepOne();
+        console.log("retype the fields again")
+    }else{
+        pAddon.style.display = "none";
+        finishup.style.display = "none";
+        pInfo.style.display = "none";
+        sPlan.style.display = "flex";
+        success.style.display = "none";
+        console.log("name",checkmyname.value);
+        console.log("email",emailInput.value);
+        console.log("number",checkmynumber.value);
+        createdEl.sheet.insertRule(`
+            li:nth-child(2)::before{ 
+                color: #444 !important; 
+                background: #87ceeb;
+            }
+            `,createdEl.sheet.cssRules.length)
+        createdEl.sheet.insertRule(`
+            li:nth-child(1)::before,
+            li:nth-child(3)::before,
+            li:nth-child(4)::before{ 
+                color: white !important; 
+                background: transparent;
+            }
+            `,createdEl.sheet.cssRules.length)
+    }
 }
 function toStepThree(){
-    finishup.style.display = "none";
-    pInfo.style.display = "none";
-    sPlan.style.display = "none";
-    pAddon.style.display = "flex";
-    success.style.display = "none";
+    if(checkmyname.value === "" || emailInput === "" || checkmynumber === ""){
+        toStepOne();
+        console.log("retype the fields again")
+    }else{
+        finishup.style.display = "none";
+        pInfo.style.display = "none";
+        sPlan.style.display = "none";
+        pAddon.style.display = "flex";
+        success.style.display = "none";
 
-    createdEl.sheet.insertRule(`
-        li:nth-child(3)::before{ 
-            color: #444 !important; 
-            background: #87ceeb;
-        }
-        `,createdEl.sheet.cssRules.length);
-    createdEl.sheet.insertRule(`
-        li:nth-child(1)::before,
-        li:nth-child(2)::before,
-        li:nth-child(4)::before{ 
-            color: white !important; 
-            background: transparent;
-        }
-        `,createdEl.sheet.cssRules.length)
+        createdEl.sheet.insertRule(`
+            li:nth-child(3)::before{ 
+                color: #444 !important; 
+                background: #87ceeb;
+            }
+            `,createdEl.sheet.cssRules.length);
+        createdEl.sheet.insertRule(`
+            li:nth-child(1)::before,
+            li:nth-child(2)::before,
+            li:nth-child(4)::before{ 
+                color: white !important; 
+                background: transparent;
+            }
+            `,createdEl.sheet.cssRules.length)
+    }
 }
 function toStepFour(){
-    pInfo.style.display = "none";
-    sPlan.style.display = "none";
-    pAddon.style.display = "none";
-    finishup.style.display = "block";
-    success.style.display = "none";
-
-    if(arcadeBox.checked === true && dotTwo.style.opacity == 1){
-        let num1, num2, num3 = 0;
-        if(onServiceBox.checked){num1 = addOnline;}
-        if(laStorageBox.checked){num2 = addStorage;}
-        if(cuProfileBox.checked){ num3 = addProfile;}
-        if(!onServiceBox.checked){ num1 = 0;}
-        if(!laStorageBox.checked){num2 = 0;}
-        if(!cuProfileBox.checked){num3 = 0;}
-        if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
-            totalPrice.textContent = yrArcade;
-        }
-        totalPrice.textContent = num1 + num2 + num3 + yrArcade;
-        console.log("year", num1, num2 , num3)
-    }else if(arcadeBox.checked === true && dotTwo.style.opacity == 0){
-        if(onServiceBox.checked){num1 = addOnline;}
-        if(laStorageBox.checked){num2 = addStorage;}
-        if(cuProfileBox.checked){ num3 = addProfile;}
-        if(!onServiceBox.checked){ num1 = 0;}
-        if(!laStorageBox.checked){num2 = 0;}
-        if(!cuProfileBox.checked){num3 = 0;}
-        if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
-            totalPrice.textContent = moArcade;
-        }
-        totalPrice.textContent = num1 + num2 + num3 + moArcade;
-        console.log("months", num1, num2 , num3)
-    }else if(advancedBox.checked === true && dotTwo.style.opacity == 1){
-        let num1, num2, num3 = 0;
-        if(onServiceBox.checked){num1 = addOnline;}
-        if(laStorageBox.checked){num2 = addStorage;}
-        if(cuProfileBox.checked){ num3 = addProfile;}
-        if(!onServiceBox.checked){ num1 = 0;}
-        if(!laStorageBox.checked){num2 = 0;}
-        if(!cuProfileBox.checked){num3 = 0;}
-        if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
-            totalPrice.textContent = yrAdvanced;
-        }
-        totalPrice.textContent = num1 + num2 + num3 + yrAdvanced;
-        console.log("year", num1, num2 , num3)
-    }else if(advancedBox.checked === true && dotTwo.style.opacity == 0){
-        if(onServiceBox.checked){num1 = addOnline;}
-        if(laStorageBox.checked){num2 = addStorage;}
-        if(cuProfileBox.checked){num3 = addProfile;}
-        if(!onServiceBox.checked){num1 = 0;}
-        if(!laStorageBox.checked){num2 = 0;}
-        if(!cuProfileBox.checked){num3 = 0;}
-        if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
-            totalPrice.textContent = moAdvanced;
-        }
-        totalPrice.textContent = num1 + num2 + num3 + moAdvanced;
-        console.log("months", num1, num2 , num3)
-    }else if(proBox.checked === true && dotTwo.style.opacity == 1){
-        let num1, num2, num3 = 0;
-        if(onServiceBox.checked){num1 = addOnline;}
-        if(laStorageBox.checked){num2 = addStorage;}
-        if(cuProfileBox.checked){num3 = addProfile;}
-        if(!onServiceBox.checked){num1 = 0;}
-        if(!laStorageBox.checked){num2 = 0;}
-        if(!cuProfileBox.checked){num3 = 0;}
-        if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
-            totalPrice.textContent = yrPro;
-        }
-        totalPrice.textContent = num1 + num2 + num3 + yrPro;
-        console.log("year", num1, num2 , num3)
-    }else if(proBox.checked === true && dotTwo.style.opacity == 1){
-        if(onServiceBox.checked){num1 = addOnline;}
-        if(laStorageBox.checked){num2 = addStorage;}
-        if(cuProfileBox.checked){num3 = addProfile;}
-        if(!onServiceBox.checked){num1 = 0;}
-        if(!laStorageBox.checked){num2 = 0;}
-        if(!cuProfileBox.checked){num3 = 0;}
-        if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
-            totalPrice.textContent = moPro;
-        }
-        totalPrice.textContent = num1 + num2 + num3 + moPro;
-        console.log("months", num1, num2 , num3)
+    if(checkmyname.value === "" || emailInput === "" || checkmynumber === ""){
+        toStepOne();
+        console.log("retype the fields again")
     }else{
-        totalPrice.textContent = "-"
-        console.log("No plan was selected");
+        pInfo.style.display = "none";
+        sPlan.style.display = "none";
+        pAddon.style.display = "none";
+        finishup.style.display = "block";
+        success.style.display = "none";
+
+        if(arcadeBox.checked === true && dotTwo.style.opacity == 1){
+            let num1, num2, num3 = 0;
+            if(onServiceBox.checked){num1 = addOnlineYr;}
+            if(laStorageBox.checked){num2 = addStorageYr;}
+            if(cuProfileBox.checked){num3 = addProfileYr;}
+            if(!onServiceBox.checked){ num1 = 0;}
+            if(!laStorageBox.checked){num2 = 0;}
+            if(!cuProfileBox.checked){num3 = 0;}
+            if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
+                totalPrice.textContent = yrArcade;
+            }
+            totalPrice.textContent = "+$ " + (num1 + num2 + num3 + yrArcade) + "/yr";
+            idServicePrice.textContent = "+$ " + num1 + "/yr";
+            idStoragePrice.textContent = "+$ " + num2 + "/yr";
+            idProfilePrice.textContent = "+$ " + num3 + "/yr";
+            idProfilePrice2.textContent = "+$ " + num3 + "/yr";
+            idStoragePrice2.textContent = "+$ " + num2 + "/yr";
+            idServicePrice2.textContent = "+$ " + num1 + "/yr";
+            console.log("year", num1, num2 , num3)
+        }else if(arcadeBox.checked === true && dotTwo.style.opacity == 0){
+            if(onServiceBox.checked){num1 = addOnlineMo;}
+            if(laStorageBox.checked){num2 = addStorageMo;}
+            if(cuProfileBox.checked){ num3 = addProfileMo;}
+            if(!onServiceBox.checked){ num1 = 0;}
+            if(!laStorageBox.checked){num2 = 0;}
+            if(!cuProfileBox.checked){num3 = 0;}
+            if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
+                totalPrice.textContent = moArcade;
+            }
+            totalPrice.textContent = "+$ " + (num1 + num2 + num3 + moArcade)+ "/mo";
+            idServicePrice.textContent = "+$ " + num1 + "/mo";
+            idStoragePrice.textContent = "+$ " + num2 + "/mo";
+            idProfilePrice.textContent = "+$ " + num3 + "/mo";
+            idProfilePrice2.textContent = "+$ " + num3 + "/mo";
+            idStoragePrice2.textContent = "+$ " + num2 + "/mo";
+            idServicePrice2.textContent = "+$ " + num1 + "/mo";
+            console.log("months", num1, num2 , num3)
+        }else if(advancedBox.checked === true && dotTwo.style.opacity == 1){
+            let num1, num2, num3 = 0;
+            if(onServiceBox.checked){num1 = addOnlineYr;}
+            if(laStorageBox.checked){num2 = addStorageYr;}
+            if(cuProfileBox.checked){ num3 = addProfileYr;}
+            if(!onServiceBox.checked){ num1 = 0;}
+            if(!laStorageBox.checked){num2 = 0;}
+            if(!cuProfileBox.checked){num3 = 0;}
+            if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
+                totalPrice.textContent = yrAdvanced;
+            }
+            totalPrice.textContent = "+$ " + (num1 + num2 + num3 + yrAdvanced) + "/yr";
+            idServicePrice.textContent = "+$ " + num1 + "/yr";
+            idStoragePrice.textContent = "+$ " + num2 + "/yr";
+            idProfilePrice.textContent = "+$ " + num3 + "/yr";
+            idProfilePrice2.textContent = "+$ " + num3 + "/yr";
+            idStoragePrice2.textContent = "+$ " + num2 + "/yr";
+            idServicePrice2.textContent = "+$ " + num1 + "/yr";
+            console.log("year", num1, num2 , num3)
+        }else if(advancedBox.checked === true && dotTwo.style.opacity == 0){
+            if(onServiceBox.checked){num1 = addOnlineMo;}
+            if(laStorageBox.checked){num2 = addStorageMo;}
+            if(cuProfileBox.checked){num3 = addProfileMo;}
+            if(!onServiceBox.checked){num1 = 0;}
+            if(!laStorageBox.checked){num2 = 0;}
+            if(!cuProfileBox.checked){num3 = 0;}
+            if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
+                totalPrice.textContent = moAdvanced;
+            }
+            totalPrice.textContent = "+$ " + (num1 + num2 + num3 + moAdvanced) + "/mo";
+            idServicePrice.textContent = "+$ " + num1 + "/mo";
+            idStoragePrice.textContent = "+$ " + num2 + "/mo";
+            idProfilePrice.textContent = "+$ " + num3 + "/mo";
+            idProfilePrice2.textContent = "+$ " + num3 + "/mo";
+            idStoragePrice2.textContent = "+$ " + num2 + "/mo";
+            idServicePrice2.textContent = "+$ " + num1 + "/mo";
+            console.log("months", num1, num2 , num3)
+        }else if(proBox.checked === true && dotTwo.style.opacity == 1){
+            let num1, num2, num3 = 0;
+            if(onServiceBox.checked){num1 = addOnlineYr;}
+            if(laStorageBox.checked){num2 = addStorageYr;}
+            if(cuProfileBox.checked){num3 = addProfileYr;}
+            if(!onServiceBox.checked){num1 = 0;}
+            if(!laStorageBox.checked){num2 = 0;}
+            if(!cuProfileBox.checked){num3 = 0;}
+            if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
+                totalPrice.textContent = yrPro;
+            }
+            totalPrice.textContent = "+$ " + (num1 + num2 + num3 + yrPro) + "/yr";
+            idServicePrice.textContent = "+$ " + num1 + "/yr";
+            idStoragePrice.textContent = "+$ " + num2 + "/yr";
+            idProfilePrice.textContent = "+$ " + num3 + "/yr";
+            idProfilePrice2.textContent = "+$ " + num3 + "/yr";
+            idStoragePrice2.textContent = "+$ " + num2 + "/yr";
+            idServicePrice2.textContent = "+$ " + num1 + "/yr";
+            console.log("year", num1, num2 , num3)
+        }else if(proBox.checked === true && dotTwo.style.opacity == 0){
+            if(onServiceBox.checked){num1 = addOnlineMo;}
+            if(laStorageBox.checked){num2 = addStorageMo;}
+            if(cuProfileBox.checked){num3 = addProfileMo;}
+            if(!onServiceBox.checked){num1 = 0;}
+            if(!laStorageBox.checked){num2 = 0;}
+            if(!cuProfileBox.checked){num3 = 0;}
+            if(!cuProfileBox.checked && !laStorageBox.checked && !onServiceBox.checked){
+                totalPrice.textContent = moPro;
+            }
+            totalPrice.textContent = "+$ " + (num1 + num2 + num3 + moPro) + "/mo";
+            idServicePrice.textContent = "+$ " + num1 + "/mo";
+            idStoragePrice.textContent = "+$ " + num2 + "/mo";
+            idProfilePrice.textContent = "+$ " + num3 + "/mo";
+            idProfilePrice2.textContent = "+$ " + num3 + "/mo";
+            idStoragePrice2.textContent = "+$ " + num2 + "/mo";
+            idServicePrice2.textContent = "+$ " + num1 + "/mo";
+            console.log("months", num1, num2 , num3)
+        }else{
+            totalPrice.textContent = "-"
+            console.log("No plan was selected");
+        }
+        createdEl.sheet.insertRule(`
+            li:nth-child(4)::before{ 
+                color: #444 !important; 
+                background: #87ceeb;
+            }
+            `,createdEl.sheet.cssRules.length);
+        createdEl.sheet.insertRule(`
+            li:nth-child(1)::before,
+            li:nth-child(2)::before,
+            li:nth-child(3)::before{ 
+                color: white !important; 
+                background: transparent;
+            }
+            `,createdEl.sheet.cssRules.length)
     }
-    createdEl.sheet.insertRule(`
-        li:nth-child(4)::before{ 
-            color: #444 !important; 
-            background: #87ceeb;
-        }
-        `,createdEl.sheet.cssRules.length);
-    createdEl.sheet.insertRule(`
-        li:nth-child(1)::before,
-        li:nth-child(2)::before,
-        li:nth-child(3)::before{ 
-            color: white !important; 
-            background: transparent;
-        }
-        `,createdEl.sheet.cssRules.length)
 }
 function toSuccess(){
     finishup.style.display = "none"
@@ -441,7 +526,6 @@ dotOne.addEventListener('click',function(){
     }else{
         console.log("all are empty");
     }
-    idProfilePrice2.textContent = "+$ " + moPro + "/mo";
     totalName.textContent = "Total (per month)";
 })
 dotTwo.addEventListener('click',function(){
@@ -473,12 +557,6 @@ dotTwo.addEventListener('click',function(){
     }else{
         console.log("all are empty");
     }
-    // idServicePrice.textContent = "+$ " + addOnline + "/yr";
-    // idStoragePrice.textContent = "+$ " + addStorage + "/yr";
-    // idProfilePrice.textContent = "+$ " + addProfile + "/yr";
-    // idProfilePrice2.textContent = "+$ " + addProfile + "/yr";
-    // idStoragePrice2.textContent = "+$ " + addStorage + "/yr";
-    // idServicePrice2.textContent = "+$ " + addOnline + "/yr";
     totalName.textContent = "Total (per year)";
 })
 dotThree.addEventListener('click',function(){
@@ -510,7 +588,6 @@ idService.addEventListener('click',function(){
         idService.style.background = "#fafbff";
         idService.style.borderColor = "#02295a";
         online.style.visibility = "visible";
-        // totalPrice.textContent = "$"+(yrArcade + addOnline) + "/yr";
     }else{
         idService.style.background = "white";
         idService.style.borderColor = "#d6d9e6";
@@ -523,7 +600,6 @@ idStorage.addEventListener('click',function(){
         idStorage.style.background = "#fafbff";
         idStorage.style.borderColor = "#02295a";
         storage.style.visibility = "visible";
-        // totalPrice.textContent = "$"+(yrArcade + addStorage) + "/yr";
     }else{
         idStorage.style.background = "white";
         idStorage.style.borderColor = "#d6d9e6";
@@ -536,7 +612,6 @@ idProfile.addEventListener('click',function(){
         idProfile.style.background = "#fafbff";
         idProfile.style.borderColor = "#02295a";
         profile.style.visibility = "visible";
-        // totalPrice.textContent = "$"+(yrArcade + addProfile) + "/yr";
     }else{
         idProfile.style.background = "white";
         idProfile.style.borderColor = "#d6d9e6";
