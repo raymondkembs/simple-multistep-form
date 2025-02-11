@@ -34,6 +34,8 @@ let idProfilePrice = document.getElementById("idProfilePrice");
 let idProfilePrice2 = document.getElementById("idProfilePrice2");
 let idServicePrice2 = document.getElementById("idServicePrice2");
 let idStoragePrice2 = document.getElementById("idStoragePrice2");
+let imgDesktop = document.getElementById("imgDesktop");
+let imgMobile = document.getElementById("imgMobile");
 let checkmyname = document.getElementById('checkmyname');
 let checkmynumber = document.getElementById('checkmynumber');
 let emailInput = document.getElementById("emailInput");
@@ -67,6 +69,23 @@ let addOnlineYr = 10;
 let addStorageYr = 20; 
 let addProfileYr = 20;
 
+window.addEventListener('resize',handleImage);
+window.addEventListener('DOMContentLoaded',handleImage);
+
+function handleImage(){
+    let screenWidth = window.innerWidth;
+    console.log(screenWidth)
+    if(screenWidth < 1000){
+        // mobile image be inserted
+           imgDesktop.style.display = "none";
+           imgMobile.style.display = "block";
+    }else{
+        // desktop image be inserted
+           imgDesktop.style.display = "block";
+           imgMobile.style.display = "none";
+    }
+}
+   
 sPlanArcade.addEventListener('click',function(){
     myValue = window.getComputedStyle(dotTwo).getPropertyValue("opacity");
     arcadeBox.checked = !arcadeBox.checked;
