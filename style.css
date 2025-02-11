@@ -129,9 +129,8 @@ body{
   flex-direction: column;
 }
 .objTwo .pInfo button.meInfo{
-  position: absolute;
   align-self: flex-end;
-  margin-top: 100%;
+  margin-top: 60px;
   cursor: pointer;
   transition: 0.4s;
   color: var(--white);
@@ -220,6 +219,7 @@ body{
 .objTwo .sPlan .sPlanCon .advanced p.price,
 .objTwo .sPlan .sPlanCon .pro p.price{
   color: var(--coolGray);
+  margin-bottom: 5px;
 }
 .objTwo .sPlan .days{
   display: flex;
@@ -265,14 +265,18 @@ body{
 }
 .objTwo .sPlan .mybuttons,
 .objTwo .pAddon .mybuttons{
-  position: absolute;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   transition: 0.4s;
-  margin-top: 103%;
+}
+.objTwo .pAddon .mybuttons{
+  margin-top: 30px;
+}
+.objTwo .sPlan .mybuttons{
+  margin-top: 70px;
 }
 .objTwo .sPlan .mybuttons button.meInfo,
 .objTwo .pAddon .mybuttons button.meInfo,
@@ -349,7 +353,6 @@ body{
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  /* background: red; */
 }
 .objTwo .pContainer{
   width: 100%;
@@ -462,11 +465,11 @@ body{
   text-align: right;
 }
 .objTwo .finishup .mybuttons2{
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30%;
+  margin-top: 100px;
   width: 100%;
   background: white
 }
