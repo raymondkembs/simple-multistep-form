@@ -145,7 +145,7 @@ body{
 }
 .objTwo .pInfo .pInfoChecker{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
@@ -163,9 +163,10 @@ body{
 }
 .objTwo .sPlan p.mePlan,
 .objTwo .pAddon p.mePlan{
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 20px;
+  color: var(--coolGray)
 }
 .objTwo .sPlan .sPlanCon{
   display: flex;
@@ -174,7 +175,6 @@ body{
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  /* background: green; */
 }
 .objTwo .sPlan .sPlanCon > div{
   padding: 20px;
@@ -207,6 +207,7 @@ body{
 .objTwo .sPlan .sPlanCon .advanced p.bonus,
 .objTwo .sPlan .sPlanCon .pro p.bonus{
   display: none;
+  color: var(--marineBlue);
 }
 .objTwo .sPlan .sPlanCon .arcade p.name,
 .objTwo .sPlan .sPlanCon .advanced p.name,
@@ -214,6 +215,7 @@ body{
   margin-top:40px;
   margin-bottom: 5px;
   font-weight: 600;
+  color: var(--marineBlue);
 }
 .objTwo .sPlan .sPlanCon .arcade p.price,
 .objTwo .sPlan .sPlanCon .advanced p.price,
@@ -321,12 +323,17 @@ body{
 .objTwo form .pAddon h3,
 .objTwo form .finishup h3{
   font-size: 2.5rem;
+  color: var(--marineBlue)
+}
+.objTwo form .pInfo .x{
+  color: var(--marineBlue);
 }
 .objTwo form .pInfo p.meInfo,
 .objTwo form .finishup p.meInfo{
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 10px;
   margin-bottom: 20px;
+  color: var(--coolGray);
 }
 .objTwo form .pInfo input{
   padding: 13px 13px 13px 15px;
@@ -418,12 +425,14 @@ body{
 .objTwo .pContainer .onService p.pickTitle{
   margin-bottom: 5px;
   font-weight: 600;
+  color: var(--marineBlue)
 }
 .objTwo .pContainer .onService p.pickInfo{
   color: var(--coolGray)
 }
 .objTwo .pContainer .onService p.month{
   margin-top: 10px;
+  color: var(--purplishBlue);
 }
 .objTwo .finishup .doubleCheck{
   display: flex;
@@ -446,26 +455,43 @@ body{
 }
 .objTwo .finishup .info1 p.amount{
   padding-right: 4.7% ;
+  color: var(--marineBlue)
 }
 .objTwo .finishup .doubleCheck table{
   width: 95%;
   height: auto;
   border-collapse: collapse;
 }
+.objTwo .finishup .doubleCheck table tr.tbheader{
+  font-weight: 700;
+}
 .objTwo .finishup .doubleCheck table td.a{
-  padding: 20px;
+  margin-top: 1px;
+  padding: 10px 20px 5px 20px;
+  color: var(--marineBlue);
 }
 .objTwo .finishup .doubleCheck table tr.z{
-  border-bottom: 1px solid var(--lightGray);
+  border-bottom: 1px solid var(--coolGray);
 }
 .objTwo .finishup .doubleCheck table td.aa{
-  padding: 10px 20px 5px 20px;
+  padding: 15px 20px 5px 20px;
 }
 .objTwo .finishup .doubleCheck table td.b{
   text-align: right;
+  color: var(--marineBlue);
+}
+.objTwo .finishup .doubleCheck table td.c{
+  padding: 2px 20px 20px 20px;
+}
+.objTwo .finishup .doubleCheck table td.c a{
+  color: var(--coolGray);
+  font-weight: 400;
+  text-decoration: underline;
+}
+.objTwo .finishup .doubleCheck table td.c a:hover{
+  color: var(--purplishBlue);
 }
 .objTwo .finishup .mybuttons2{
-  /* position: absolute; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -476,13 +502,11 @@ body{
 .objTwo .finishup{
   position: relative;
   height: 100%;
-  /* background: red; */
 }
 .objTwo .success{
   margin-top: 10%;
   text-align: center;
   padding: 25px;
-  /* background: green; */
 }
 .objTwo .success > h3,
 .objTwo .success > p,
@@ -491,4 +515,132 @@ body{
 }
 .objTwo .success h3{
   font-size: 2rem;
+}
+@media (max-width: 1000px) {
+  body{
+    height: auto;
+  }
+  .con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20px;
+    border-radius: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  } 
+  .objOne{
+    position: relative;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 200px;
+    border-radius: 0px;
+  }
+  .objOne > img{
+    display: none;
+  }
+  ol{
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    top: 10%;
+    width: 70%;
+    height: auto;
+  }
+  li::before{
+    top: 2%;
+    left: 2%;
+  }
+  ol > li p{
+    display: none;
+  }
+  .objTwo{
+    margin-top: -85px;
+    padding: 30px;
+    width: 90%;
+    border-radius: 10px;
+  }
+  .objTwo form .pInfo h3,
+  .objTwo form .sPlan h3,
+  .objTwo form .pAddon h3,
+  .objTwo form .finishup h3{
+    font-size: 2rem;
+  }
+  .objTwo .sPlan .sPlanCon{
+    flex-direction: column;
+    width: 100%;
+  }
+  .objTwo .sPlan .sPlanCon > div{
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .objTwo .sPlan .sPlanCon .advanced,
+  .objTwo .sPlan .sPlanCon .pro{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    position: relative;
+    cursor: pointer;
+  }
+  .objTwo .sPlan .sPlanCon .arcade{
+    justify-content: flex-start;
+    flex-direction: row;
+    position: relative;
+    cursor: pointer;
+  }
+  .objTwo .sPlan .sPlanCon .arcade .sPlanBlock,
+  .objTwo .sPlan .sPlanCon .advanced .sPlanBlock,
+  .objTwo .sPlan .sPlanCon .pro .sPlanBlock{
+    margin-left: 20px;
+  }
+  .objTwo .sPlan .sPlanCon .arcade p.name,
+  .objTwo .sPlan .sPlanCon .advanced p.name,
+  .objTwo .sPlan .sPlanCon .pro p.name{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .objTwo .sPlan .sPlanCon .arcade p.bonus,
+  .objTwo .sPlan .sPlanCon .advanced p.bonus,
+  .objTwo .sPlan .sPlanCon .pro p.bonus{
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .objTwo .sPlan .days{
+    margin-top: 2px;
+  }
+  .objTwo .pContainer .onService{
+    justify-content: space-between;
+    padding:15px 10px;
+  }
+  .objTwo .pContainer .onService label{
+    margin-left: -20px;
+  }
+  .objTwo .pContainer .onService .pickOns{
+    font-size: 13px;
+  }
+  .objTwo .pContainer .onService p.month{
+    font-size: 13px;
+  }
+  .objTwo .pContainer .onService label.myCheckBox{
+    margin-left: 4px;
+  }
+  .objTwo .finishup .doubleCheck table td.a{
+    padding: 10px;
+  }
+  .objTwo .finishup .doubleCheck table td.c,
+  .objTwo .finishup .doubleCheck table td.aa{
+    padding-left: 10px;
+    color: var(--coolGray)
+  }
+  .objTwo .finishup .info1 p.total{
+    color: var(--coolGray)
+  }
+  .objTwo .pContainer .onService p.pickInfo{
+    font-size: 12px;
+  }
 }
