@@ -22,7 +22,7 @@ let cuProfileBox = document.getElementById("cuProfileBox");
 let idService = document.getElementById("idService");
 let idStorage = document.getElementById("idStorage");
 let idProfile = document.getElementById("idProfile");
-let mybuttons = document.getElementById("mybuttons3");
+let mybuttons3 = document.getElementById("mybuttons3");
 let bonus = document.getElementsByClassName("bonus");
 let online = document.getElementById("online");
 let onlineTdPrice = document.getElementById("onlineTdPrice");
@@ -301,9 +301,6 @@ function toStepFour(){
                 totalPrice.textContent = yrArcade;
             }
             totalPrice.textContent = "+$ " + (num1 + num2 + num3 + yrArcade) + "/yr";
-            idServicePrice.textContent = "+$ " + num1 + "/yr";
-            idStoragePrice.textContent = "+$ " + num2 + "/yr";
-            idProfilePrice.textContent = "+$ " + num3 + "/yr";
             idProfilePrice2.textContent = "+$ " + num3 + "/yr";
             idStoragePrice2.textContent = "+$ " + num2 + "/yr";
             idServicePrice2.textContent = "+$ " + num1 + "/yr";
@@ -319,9 +316,6 @@ function toStepFour(){
                 totalPrice.textContent = moArcade;
             }
             totalPrice.textContent = "+$ " + (num1 + num2 + num3 + moArcade)+ "/mo";
-            idServicePrice.textContent = "+$ " + num1 + "/mo";
-            idStoragePrice.textContent = "+$ " + num2 + "/mo";
-            idProfilePrice.textContent = "+$ " + num3 + "/mo";
             idProfilePrice2.textContent = "+$ " + num3 + "/mo";
             idStoragePrice2.textContent = "+$ " + num2 + "/mo";
             idServicePrice2.textContent = "+$ " + num1 + "/mo";
@@ -338,9 +332,6 @@ function toStepFour(){
                 totalPrice.textContent = yrAdvanced;
             }
             totalPrice.textContent = "+$ " + (num1 + num2 + num3 + yrAdvanced) + "/yr";
-            idServicePrice.textContent = "+$ " + num1 + "/yr";
-            idStoragePrice.textContent = "+$ " + num2 + "/yr";
-            idProfilePrice.textContent = "+$ " + num3 + "/yr";
             idProfilePrice2.textContent = "+$ " + num3 + "/yr";
             idStoragePrice2.textContent = "+$ " + num2 + "/yr";
             idServicePrice2.textContent = "+$ " + num1 + "/yr";
@@ -356,9 +347,6 @@ function toStepFour(){
                 totalPrice.textContent = moAdvanced;
             }
             totalPrice.textContent = "+$ " + (num1 + num2 + num3 + moAdvanced) + "/mo";
-            idServicePrice.textContent = "+$ " + num1 + "/mo";
-            idStoragePrice.textContent = "+$ " + num2 + "/mo";
-            idProfilePrice.textContent = "+$ " + num3 + "/mo";
             idProfilePrice2.textContent = "+$ " + num3 + "/mo";
             idStoragePrice2.textContent = "+$ " + num2 + "/mo";
             idServicePrice2.textContent = "+$ " + num1 + "/mo";
@@ -375,9 +363,6 @@ function toStepFour(){
                 totalPrice.textContent = yrPro;
             }
             totalPrice.textContent = "+$ " + (num1 + num2 + num3 + yrPro) + "/yr";
-            idServicePrice.textContent = "+$ " + num1 + "/yr";
-            idStoragePrice.textContent = "+$ " + num2 + "/yr";
-            idProfilePrice.textContent = "+$ " + num3 + "/yr";
             idProfilePrice2.textContent = "+$ " + num3 + "/yr";
             idStoragePrice2.textContent = "+$ " + num2 + "/yr";
             idServicePrice2.textContent = "+$ " + num1 + "/yr";
@@ -393,9 +378,6 @@ function toStepFour(){
                 totalPrice.textContent = moPro;
             }
             totalPrice.textContent = "+$ " + (num1 + num2 + num3 + moPro) + "/mo";
-            idServicePrice.textContent = "+$ " + num1 + "/mo";
-            idStoragePrice.textContent = "+$ " + num2 + "/mo";
-            idProfilePrice.textContent = "+$ " + num3 + "/mo";
             idProfilePrice2.textContent = "+$ " + num3 + "/mo";
             idStoragePrice2.textContent = "+$ " + num2 + "/mo";
             idServicePrice2.textContent = "+$ " + num1 + "/mo";
@@ -508,6 +490,9 @@ dotOne.addEventListener('click',function(){
     bonus[0].style.display = "none";
     bonus[1].style.display = "none";
     bonus[2].style.display = "none";
+    idServicePrice.textContent = "+$ " + addOnlineMo + "/mo";
+    idStoragePrice.textContent = "+$ " + addStorageMo + "/mo";
+    idProfilePrice.textContent = "+$ " + addProfileMo + "/mo";
     if(arcadeBox.checked === true){
         console.log("arcade is true");
         monthlyPlan.textContent = "Arcade(Monthly)";
@@ -536,9 +521,13 @@ dotTwo.addEventListener('click',function(){
     pArcade.innerHTML = "$90/yr";
     pAdvanced.innerHTML = "$120/yr";
     pPro.innerHTML = "$150/yr";
+    idServicePrice.textContent = "+$ " + addOnlineYr + "/yr";
+    idStoragePrice.textContent = "+$ " + addStorageYr + "/yr";
+    idProfilePrice.textContent = "+$ " + addProfileYr + "/yr";
     bonus[0].style.display = "block";
     bonus[1].style.display = "block";
     bonus[2].style.display = "block";
+    mybuttons3.style.marginTop = 40 + "px";
     if(arcadeBox.checked === true){
         console.log("arcade is true");
         monthlyPlan.textContent = "Arcade(Yearly)";
@@ -566,6 +555,9 @@ dotThree.addEventListener('click',function(){
         bonus[0].style.display = "block";
         bonus[1].style.display = "block";
         bonus[2].style.display = "block";
+        idServicePrice.textContent = "+$ " + addOnlineYr + "/yr";
+        idStoragePrice.textContent = "+$ " + addStorageYr + "/yr";
+        idProfilePrice.textContent = "+$ " + addProfileYr + "/yr";
         pArcade.innerHTML = "$90/yr";
         pAdvanced.innerHTML = "$120/yr";
         pPro.innerHTML = "$150/yr";
@@ -576,6 +568,9 @@ dotThree.addEventListener('click',function(){
         bonus[0].style.display = "none";
         bonus[1].style.display = "none";
         bonus[2].style.display = "none";
+        idServicePrice.textContent = "+$ " + addOnlineMo + "/mo";
+        idStoragePrice.textContent = "+$ " + addStorageMo + "/mo";
+        idProfilePrice.textContent = "+$ " + addProfileMo + "/mo";
         pArcade.innerHTML = "$9/mo";
         pAdvanced.innerHTML = "$12/mo";
         pPro.innerHTML = "$15/mo";
